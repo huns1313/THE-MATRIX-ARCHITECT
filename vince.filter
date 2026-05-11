@@ -1,6 +1,5 @@
 // THE MATRIX ARCHITECT v14.8 // SYSTEM_ERROR_DETECTION // GJ
 // MODES: [N.] NORMA // [NM.] NIGHT // [HELLYA] HELL // [GOD] HYUUNNS
-// FIX: FORCED NORMAL UNIQUE VISIBILITY
 // =============================================================================
 
 // 0. SYSTEM CONTROL PANEL (CEO OVERRIDE)
@@ -13,7 +12,7 @@ ItemDisplayFilterName[]: [NM.] NIGHT MODE (Exceptional+)
 ItemDisplayFilterName[]: [HELLYA.] HELL MODE (Elite Only)
 
 // 2. SYSTEM RELEASE NOTES
-ItemDisplay[isc SHOP]: %NAME%{%NAME%%NL%%TEAL%THE MATRIX ARCHITECT v14.8%NL%%WHITE%----------------------------%NL%%GOLD%[GOD] Tier:%WHITE% Always Visible%NL%%GREEN%[HELLYA] Tier:%WHITE% Always Visible%NL%%TEAL%[NM.] Tier:%WHITE% Hidden at Lvl 3%NL%%GRAY%[N.] Tier:%WHITE% Hidden at Lvl 2/3%NL%%WHITE%----------------------------%NL%%RED%FIXED NORMAL UNIQUE VISIBILITY}
+ItemDisplay[isc SHOP]: %NAME%{%NAME%%NL%%TEAL%THE MATRIX ARCHITECT v14.8%NL%%WHITE%----------------------------%NL%%GOLD%[GOD] Tier:%WHITE% Always Visible%NL%%GREEN%[HELLYA] Tier:%WHITE% Always Visible%NL%%TEAL%[NM.] Tier:%WHITE% Hidden at Lvl 3%NL%%GRAY%[N.] Tier:%WHITE% Hidden at Lvl 2/3%NL%%WHITE%----------------------------%NL%%RED%FIXED RUNES & BASE VISIBILITY}
 
 // 3. DATA DEFINITIONS
 Alias[GODLY_ITEMS]: (lbox OR lsvl OR llmr OR imrn OR cwss)
@@ -22,30 +21,30 @@ Alias[RUNES_HIGH]: (r23 OR r24 OR r25 OR r26 OR r27 OR r28 OR r29)
 Alias[RUNES_MID]: (r16 OR r17 OR r18 OR r19 OR r20 OR r21 OR r22)
 Alias[RUNES_LOW]: (r01 OR r02 OR r03 OR r04 OR r05 OR r06 OR r07 OR r08 OR r09 OR r10 OR r11 OR r12 OR r13 OR r14 OR r15)
 
-// --- POTIONS & WAND BASES (MAP ADDED) ---
-ItemDisplay[rvl]: %SOUNDID-703%%MAP-0A%%DOT-62%%PURPLE%[GOD_FUEL] %NAME%
-ItemDisplay[rvs]: %SOUNDID-702%%MAP-0B%%PURPLE%[Fuel] %NAME%
-ItemDisplay[WEAPON SOCK=4 ONEHANDED !RW]: %SOUNDID-868%%MAP-0B%%BLUE%[4SQ] %NAME% %GRAY%(%WHITE%4%GRAY%)
-
-// 4. [MODE: GOD] // THE HYUUNNS_OVERRIDE (ALWAYS SHOW)
-ItemDisplay[GODLY_ITEMS]: %SOUNDID-701%%MAP-0A%%DOT-62%%GREEN%>> %TEAL%[GOD] %WHITE%%NAME%%GREEN% <<
-ItemDisplay[RUNES_GODLY]: %SOUNDID-701%%MAP-0A%%DOT-62%%GREEN%>> %TEAL%[GOD_RUNE] %WHITE%%NAME%%GREEN% <<
-
-
-// --- WORLDSTONE & POTIONS ---
-ItemDisplay[wss]: %SOUNDID-701%%MAP-0B%%DOT-62%%ORANGE%>> %RED%[WSS] %NAME%%ORANGE% <<
-ItemDisplay[rvl]: %SOUNDID-703%%MAP-0A%%DOT-62%%PURPLE%[GOD_FUEL] %NAME%
 // =============================================================================
-// NECROMANCER GOD-TIER VISIBILITY (ALWAYS SHOW IN NM & HELL)
+// RUNES MASTER CONTROL (ALWAYS SHOW - MULTICOLOR)
 // =============================================================================
+ItemDisplay[RUNES_GODLY]: %SOUNDID-701%%MAP-0A%%DOT-62%%RED%>> %ORANGE%[GOD_RUNE] %GOLD%%NAME%%ORANGE% <<
+ItemDisplay[RUNES_HIGH]: %SOUNDID-788%%MAP-0B%%DOT-62%%RED%>> %ORANGE%[HIGH_RUNE] %GOLD%%NAME%%ORANGE% <<
+ItemDisplay[RUNES_MID]: %SOUNDID-1%%MAP-0B%%ORANGE%[Mid] %NAME%
+ItemDisplay[RUNES_LOW]: %GRAY%[Low] %NAME%
 
-// --- 1. LES ARBRES (FORCÉ TOUJOURS VISIBLE + SON + MAP) ---
+// =============================================================================
+// BASES PAR TIER (FORCE SHOW IN ALL MODES)
+// =============================================================================
+ItemDisplay[ELT NMAG !RW]: %WHITE%[HELLYA.Base] %NAME%%CONTINUE%
+ItemDisplay[EXC NMAG !RW FILTLVL<3]: %WHITE%[NM.Base] %NAME%%CONTINUE%
+ItemDisplay[NORM NMAG !RW FILTLVL<2]: %WHITE%[N.Base] %NAME%%CONTINUE%
+ItemDisplay[(EXC OR ELT) NMAG !RW !UNI !SET !RARE FILTLVL<3]: %NAME%
+
+// =============================================================================
+// NECROMANCER GOD-TIER VISIBILITY
+// =============================================================================
 ItemDisplay[(WP12 OR nef) TABSK18>1]: %SOUNDID-277%%MAP-0B%%DOT-62%%BLUE%[+2 SUMMON] %NAME% %CONTINUE%
 ItemDisplay[(WP12 OR nef) TABSK17>1]: %SOUNDID-277%%MAP-0B%%DOT-62%%BLUE%[+2 PNB] %NAME% %CONTINUE%
 ItemDisplay[(WP12 OR nef) TABSK16>1]: %SOUNDID-277%%MAP-0B%%DOT-62%%BLUE%[+2 CURSE] %NAME% %CONTINUE%
 ItemDisplay[(WP12 OR nef) CLSK2>1]: %SOUNDID-277%%MAP-0B%%DOT-62%%BLUE%[+2 NECRO] %NAME% %CONTINUE%
 
-// --- 2. BRANCH SUMMON (INVOQUE) ---
 ItemDisplay[(WP12 OR nef) SK70>2]: %MAP-0B%%BLUE%[+3 WARRIOR] %NAME% %CONTINUE%
 ItemDisplay[(WP12 OR nef) SK80>2]: %MAP-0B%%BLUE%[+3 MAGE] %NAME% %CONTINUE%
 ItemDisplay[(WP12 OR nef) SK89>2]: %MAP-0B%%BLUE%[+3 ARCHER] %NAME% %CONTINUE%
@@ -55,7 +54,6 @@ ItemDisplay[(WP12 OR nef) SK79>2]: %MAP-0B%%BLUE%[+3 GOLEM-M] %NAME% %CONTINUE%
 ItemDisplay[(WP12 OR nef) SK94>2]: %MAP-0B%%BLUE%[+3 FIRE-G] %NAME% %CONTINUE%
 ItemDisplay[(WP12 OR nef) SK90>2]: %MAP-0B%%BLUE%[+3 IRON-G] %NAME% %CONTINUE%
 
-// --- 3. BRANCH POISON & BONE ---
 ItemDisplay[(WP12 OR nef) SK67>2 !TABSK17>0 !CLSK2>0]: %MAP-0B%%BLUE%[+3 TEETH] %NAME% %CONTINUE%
 ItemDisplay[(WP12 OR nef) SK92>2]: %MAP-0B%%BLUE%[+3 NOVA] %NAME% %CONTINUE%
 ItemDisplay[(WP12 OR nef) SK84>2]: %MAP-0B%%BLUE%[+3 SPEAR] %NAME% %CONTINUE%
@@ -63,75 +61,75 @@ ItemDisplay[(WP12 OR nef) SK93>2]: %MAP-0B%%BLUE%[+3 SPIRIT] %NAME% %CONTINUE%
 ItemDisplay[(WP12 OR nef) SK83>2]: %MAP-0B%%BLUE%[+3 DESECRATE] %NAME% %CONTINUE%
 ItemDisplay[(WP12 OR nef) SK74>2]: %MAP-0B%%BLUE%[+3 CE] %NAME% %CONTINUE%
 
-// --- 4. BRANCH CURSES & UTILITY ---
 ItemDisplay[(WP12 OR nef) SK91>2]: %MAP-0B%%BLUE%[+3 LOW-RES] %NAME% %CONTINUE%
 ItemDisplay[(WP12 OR nef) SK87>2]: %MAP-0B%%BLUE%[+3 DECREP] %NAME% %CONTINUE%
 ItemDisplay[(WP12 OR nef) SK367>2]: %MAP-0B%%BLUE%[+3 BLOOD-W] %NAME% %CONTINUE%
 
-// --- 5. LES BASES SOCKETS (FORCÉ TOUJOURS VISIBLE) ---
 ItemDisplay[WP12 NMAG SOCK=2]: %MAP-0B%%DOT-62%%BLUE%[WHITE-BASE] %NAME% %CONTINUE%
 ItemDisplay[nef NMAG SOCK=2]: %MAP-0B%%DOT-62%%BLUE%[SPLENDOR-BASE] %NAME% %CONTINUE%
 
-// --- 6. SÉCURITÉ ANTI-HIDE ---
 ItemDisplay[(WP12 OR nef) (TABSK18>1 OR TABSK17>1 OR CLSK2>1 OR SK70>2 OR SK92>2 OR SK89>2)]: %NAME%
-// =============================================================================
-// CONSUMABLES MANAGEMENT (FILTER LEVEL SCALING)
-// =============================================================================
 
-// --- 1. ALWAYS SHOW (GOD & SUPER) ---
-ItemDisplay[rvl]: %SOUNDID-703%%MAP-0A%%DOT-62%%PURPLE%[GOD_FUEL] %NAME%
+// =============================================================================
+// CONSUMABLES MANAGEMENT
+// =============================================================================
+ItemDisplay[rvl]: %SOUNDID-703%%MAP-0A%%DOT-62%%PURPLE%[GOD_FUEL] %NAME%	
 ItemDisplay[rvs]: %SOUNDID-702%%MAP-0B%%PURPLE%[Fuel] %NAME%
-ItemDisplay[hp5]: %SOUNDID-300%%TAN%[SUPER] %NAME%
+ItemDisplay[hp5]: %SOUNDID-300%%TAN%[SUPER POTION]
 ItemDisplay[mp5]: %BLUE%[CORE_FUEL] %NAME%
-ItemDisplay[yps]: %WHITE%[ANTIDOTE] %NAME% // Toujours visible (NM/HELL)
-// --- 2. HIDE AT FILTLVL 2+ (PROPRE) ---
+ItemDisplay[yps]: %WHITE%[ANTIDOTE]
 
-// 1. On donne le nom normal aux items dans la ceinture/sac (évite le carré noir)
 ItemDisplay[(hp1 OR hp2 OR hp3 OR hp4 OR mp1 OR mp2 OR mp3 OR mp4) (BELT OR INV)]: %NAME%
 ItemDisplay[(isc OR tsc OR vps OR wms) (BELT OR INV)]: %NAME%
 
-// 2. On CACHE COMPLÈTEMENT au sol (si FILTLVL > 1)
 ItemDisplay[(hp1 OR hp2 OR hp3 OR hp4 OR mp1 OR mp2 OR mp3 OR mp4) FILTLVL>1]: 
 ItemDisplay[(isc OR tsc OR vps OR wms OR cph OR gpm OR opm OR plms OR glms) FILTLVL>1]: 
 ItemDisplay[(vwp OR gwp OR bwp OR quivers) FILTLVL>1]:
+
+// =============================================================================
+// CONSUMABLES & UTILITY
+// =============================================================================
+ItemDisplay[wss]: %SOUNDID-701%%MAP-0B%%DOT-62%%ORANGE%>> %RED%[WSS] %NAME%%ORANGE% <<
+ItemDisplay[rvl]: %SOUNDID-703%%MAP-0A%%DOT-62%%PURPLE%[GOD_FUEL] %NAME%	
+ItemDisplay[rvs]: %SOUNDID-702%%MAP-0B%%PURPLE%[Fuel] %NAME%
+ItemDisplay[hp5]: %SOUNDID-300%%TAN%[SUPER POTION]
+ItemDisplay[mp5]: %BLUE%[CORE_ManaFUEL]
+ItemDisplay[yps]: %WHITE%[ANTIDOTE]
+
+ItemDisplay[(hp1 OR hp2 OR hp3 OR hp4 OR mp1 OR mp2 OR mp3 OR mp4) (BELT OR INV)]: %NAME%
+ItemDisplay[(isc OR tsc OR vps OR wms) (BELT OR INV)]: %NAME%
+
+ItemDisplay[(hp1 OR hp2 OR hp3 OR hp4 OR mp1 OR mp2 OR mp3 OR mp4) FILTLVL>1]: 
+ItemDisplay[(isc OR tsc OR vps OR wms OR cph OR gpm OR opm OR plms OR glms) FILTLVL>1]: 
+ItemDisplay[(vwp OR gwp OR bwp OR quivers) FILTLVL>1]:
+
 // 4. [DYNAMIC AUTO-HIDING ENGINE]
 ItemDisplay[(NORM OR EXC) (NMAG OR MAG) !UNI !SET !RARE !RW MAPID>137]:
 ItemDisplay[GOLD<100 CLVL<18]:
 ItemDisplay[GOLD<1000 (CLVL>17 AND CLVL<80)]:
 ItemDisplay[GOLD<5000 CLVL>79]:
 ItemDisplay[(hp1 OR hp2 OR hp3 OR hp4 OR mp1 OR mp2 OR mp3 OR mp4 OR rvs OR isc OR tsc) MAPID>137]:
-// 5. [MODE: HELLYA.] // THE ELITE_STREAM (ALWAYS SHOW)
-ItemDisplay[NORM FILTLVL=3]:
-ItemDisplay[EXC FILTLVL=3]:
-ItemDisplay[RUNES_LOW FILTLVL=3]:
+
+// 5. [MODE: HELLYA.] // THE ELITE_STREAM
 ItemDisplay[UNI ELT]: %SOUNDID-737%%MAP-0B%%DOT-62%%GREEN%[HELLYA.Unique] >> %NAME% <<
 ItemDisplay[SET ELT]: %SOUNDID-737%%MAP-0B%%DOT-62%%GREEN%[HELLYA.Set] >> %NAME% <<
-ItemDisplay[RUNES_MID FILTLVL=3]:
-ItemDisplay[RUNES_HIGH]: %SOUNDID-737%%MAP-0B%%DOT-62%%GREEN%>> %WHITE%[HELLYA] %NAME%%GREEN% <<
 ItemDisplay[RW ELT]: %SOUNDID-737%%MAP-0B%%DOT-97%%WHITE%[HELLYA.Command] %NAME%
 ItemDisplay[RARE ELT]: %TAN%[HELLYA.Rare] %NAME%
-ItemDisplay[ELT NMAG !RW]: %WHITE%[HELLYA.Base] %NAME%%CONTINUE%
+ItemDisplay[(NORM OR EXC) FILTLVL=3]: 
 
 // 6. [MODE: NIGHT] // THE EXCEPTIONAL_STREAM
+ItemDisplay[UNI EXC]: %SOUNDID-788%%MAP-0B%%DOT-62%%GREEN%[NM.Unique] >> %NAME% <<
+ItemDisplay[SET EXC]: %SOUNDID-701%%MAP-0B%%DOT-62%%GREEN%[NM.Set] >> %NAME% <<
+ItemDisplay[RW EXC]: %SOUNDID-788%%MAP-0B%%DOT-97%%WHITE%[NM.Command] %NAME%
+ItemDisplay[RARE EXC]: %TAN%[NM.Rare] %NAME%
 ItemDisplay[NORM FILTLVL=2]:
-ItemDisplay[EXC FILTLVL=2]:
-ItemDisplay[RUNES_LOW FILTLVL=2]:
-ItemDisplay[UNI EXC]: %SOUNDID-788%%MAP-0B%%DOT-62%%GREEN%[HELLYA.Unique] >> %NAME% <<
-ItemDisplay[SET EXC]: %SOUNDID-701%%MAP-0B%%DOT-62%%GREEN%[HELLYA.Set] >> %NAME% <<
-ItemDisplay[RUNES_MID FILTLVL=2]:
-ItemDisplay[RUNES_HIGH]: %SOUNDID-788%%MAP-0B%%DOT-62%%GREEN%>> %WHITE%[HELLYA] %NAME%%GREEN% <<
-ItemDisplay[RW EXC]: %SOUNDID-788%%MAP-0B%%DOT-97%%WHITE%[HELLYA.Command] %NAME%
-ItemDisplay[RARE EXC]: %TAN%[HELLYA.Rare] %NAME%
-ItemDisplay[EXC NMAG !RW]: %WHITE%[HELLYA.Base] %NAME%%CONTINUE%
 
 // 7. [MODE: N.] // THE RAW_ASCII (NORMAL)
 ItemDisplay[UNI NORM MODE_NORMA=1]: %SOUNDID-788%%MAP-0B%%DARK_GREEN%[N.Unique] %NAME%
 ItemDisplay[NORM NMAG !RW CLVL>40 !TOWN]:
-ItemDisplay[RUNES_LOW]: %GRAY%[N.Rune] %NAME%
 ItemDisplay[RW NORM]: %MAP-0B%%WHITE%[N.Command] %NAME%
 ItemDisplay[SET NORM]: %SOUNDID-788%%DARK_GREEN%[N.Set] %NAME%
 ItemDisplay[RARE NORM]: %YELLOW%[N.Rare] %NAME%
-ItemDisplay[NMAG NORM !RW]: %WHITE%[N.] %NAME%%CONTINUE%
 
 // 11. DATA CATCH-ALL
 ItemDisplay[hp5 OR mp5]: %GREEN%[Core_Fuel] %NAME%
