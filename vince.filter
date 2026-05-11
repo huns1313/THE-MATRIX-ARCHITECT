@@ -1,0 +1,91 @@
+
+// THE MATRIX ARCHITECT v14.8 // SYSTEM_ERROR_DETECTION // GJ
+// MODES: [N.] NORMA // [NM.] NIGHT // [HELLYA] HELL // [GOD] HYUUNNS
+// FIX: FORCED NORMAL UNIQUE VISIBILITY
+// =============================================================================
+
+// 0. SYSTEM CONTROL PANEL (CEO OVERRIDE)
+Alias[MODE_NORMA]: 1
+Alias[MODE_NIGHT]: 1
+
+// 1. FILTER TIER NAMES
+ItemDisplayFilterName[]: [N.] NORMA MODE 
+ItemDisplayFilterName[]: [NM.] NIGHT MODE (Exceptional+)
+ItemDisplayFilterName[]: [HELLYA] HELL MODE (Elite Only)
+
+// 2. SYSTEM RELEASE NOTES
+ItemDisplay[isc SHOP]: %NAME%{%NAME%%NL%%TEAL%THE MATRIX ARCHITECT v14.8%NL%%WHITE%----------------------------%NL%%GOLD%[GOD] Tier:%WHITE% Always Visible%NL%%GREEN%[HELLYA] Tier:%WHITE% Always Visible%NL%%TEAL%[NM.] Tier:%WHITE% Hidden at Lvl 3%NL%%GRAY%[N.] Tier:%WHITE% Hidden at Lvl 2/3%NL%%WHITE%----------------------------%NL%%RED%FIXED NORMAL UNIQUE VISIBILITY}
+
+// 3. DATA DEFINITIONS
+Alias[GODLY_ITEMS]: (lbox OR lsvl OR llmr OR imrn OR cwss)
+Alias[RUNES_GODLY]: (r30 OR r31 OR r32 OR r33)
+Alias[RUNES_HIGH]: (r23 OR r24 OR r25 OR r26 OR r27 OR r28 OR r29)
+Alias[RUNES_MID]: (r16 OR r17 OR r18 OR r19 OR r20 OR r21 OR r22)
+Alias[RUNES_LOW]: (r01 OR r02 OR r03 OR r04 OR r05 OR r06 OR r07 OR r08 OR r09 OR r10 OR r11 OR r12 OR r13 OR r14 OR r15)
+ItemDisplay[rvl]: %SOUNDID-703%%PURPLE%[GOD_FUEL] %NAME%
+ItemDisplay[rvs]: %SOUNDID-702%%PURPLE%[Fuel] %NAME%
+// 4. [MODE: GOD] // THE HYUUNNS_OVERRIDE (ALWAYS SHOW)
+ItemDisplay[GODLY_ITEMS]: %SOUNDID-701%%MAP-0A%%DOT-62%%GREEN%>> %TEAL%[GOD] %WHITE%%NAME%%GREEN% <<
+ItemDisplay[RUNES_GODLY]: %SOUNDID-701%%MAP-0A%%DOT-62%%GREEN%>> %TEAL%[GOD_RUNE] %WHITE%%NAME%%GREEN% <<
+ItemDisplay[NMAG SUP ED=15]: %SOUNDID-701%%MAP-0B%%DOT-62%%GREEN%>> %WHITE%[PERFECT_15%%] %NAME%%GREEN% <<
+ItemDisplay[hp1 OR hp2 OR hp3 OR hp4 OR hp5]: %SOUNDID-300%%TAN%%NAME%
+
+// 4. [DYNAMIC AUTO-HIDING ENGINE] (Strictness Integration)
+ItemDisplay[(NORM OR EXC) (NMAG OR MAG) !UNI !SET !RARE !RW MAPID>137]: 
+ItemDisplay[GOLD<100 CLVL<18]:
+ItemDisplay[GOLD<1000 (CLVL>17 AND CLVL<80)]:
+ItemDisplay[GOLD<5000 CLVL>79]:
+ItemDisplay[(hp1 OR hp2 OR hp3 OR hp4 OR mp1 OR mp2 OR mp3 OR mp4 OR rvs OR isc OR tsc) MAPID>137]:
+
+// 5. [MODE: HELLYA] // THE ELITE_STREAM (ALWAYS SHOW)
+ItemDisplay[NORM FILTLVL=3]:
+ItemDisplay[EXC FILTLVL=3]:
+ItemDisplay[RUNES_LOW FILTLVL=3]:
+ItemDisplay[UNI ELT]: %SOUNDID-737%%GREEN%[HELLYA.Unique] >> %NAME% <<
+ItemDisplay[SET ELT]: %SOUNDID-737%%GREEN%[HELLYA.Set] >> %NAME% <<
+ItemDisplay[RUNES_MID FILTLVL=3]:
+ItemDisplay[RUNES_HIGH]: %SOUNDID-737%%MAP-0B%%DOT-62%%GREEN%>> %WHITE%[HELLYA] %NAME%%GREEN% <<
+ItemDisplay[RW ELT]: %SOUNDID-737%%DOT-97%%WHITE%[HELLYA.Command] %NAME%
+ItemDisplay[RARE ELT]: %TAN%[HELLYA.Rare] %NAME%
+ItemDisplay[ELT NMAG !RW]: %WHITE%[HELLYA.Base] %NAME%%CONTINUE%
+
+// 6. [MODE: HELLYA] // THE ELITE_STREAM (ALWAYS SHOW)
+ItemDisplay[NORM FILTLVL=2]:
+ItemDisplay[EXC FILTLVL=2]:
+ItemDisplay[RUNES_LOW FILTLVL=2]:
+ItemDisplay[UNI EXC]: %SOUNDID-788%%GREEN%[HELLYA.Unique] >> %NAME% <<
+ItemDisplay[SET EXC]: %SOUNDID-701%%GREEN%[HELLYA.Set] >> %NAME% <<
+ItemDisplay[RUNES_MID FILTLVL=2]:
+ItemDisplay[RUNES_HIGH]: %SOUNDID-788%%MAP-0B%%DOT-62%%GREEN%>> %WHITE%[HELLYA] %NAME%%GREEN% <<
+ItemDisplay[RW EXC]: %SOUNDID-788%%DOT-97%%WHITE%[HELLYA.Command] %NAME%
+ItemDisplay[RARE EXC]: %TAN%[HELLYA.Rare] %NAME%
+ItemDisplay[EXC NMAG !RW]: %WHITE%[HELLYA.Base] %NAME%%CONTINUE%
+
+// 7. [MODE: N.] // THE RAW_ASCII (NORMAL)
+ItemDisplay[UNI NORM MODE_NORMA=1]: %SOUNDID-788%%DARK_GREEN%[N.Unique] %NAME%
+ItemDisplay[NORM NMAG !RW CLVL>40 !TOWN]:
+ItemDisplay[RUNES_LOW]: %GRAY%[N.Rune] %NAME%
+ItemDisplay[RW NORM]: %WHITE%[N.Command] %NAME%
+ItemDisplay[UNI NORM]: %SOUNDID-788%%DARK_GREEN%[N.Unique] %NAME%
+ItemDisplay[SET NORM]: %SOUNDID-788%%DARK_GREEN%[N.Set] %NAME%
+ItemDisplay[RARE NORM]: %YELLOW%[N.Rare] %NAME%
+ItemDisplay[NMAG NORM !RW]: %WHITE%[N.] %NAME%%CONTINUE%
+
+// 9. SYSTEM ERRORS (RED EXCEPTION)
+ItemDisplay[NMAG INF !RW]: %RED%[BROKEN] %NAME%
+ItemDisplay[NMAG SOCK=1 !RW !leg !QUIVERS CLVL>15]: %RED%[LOW_DATA] %NAME%
+
+// 10. SYSTEM HARDWARE ATTACHMENTS (SUPERIOR & ETH DATA)
+ItemDisplay[ETH NMAG !RW]: %GRAY%(%TAN%Eth%GRAY%) %NAME%%CONTINUE%
+ItemDisplay[NMAG SUP]: Superior %NAME%%CONTINUE%
+ItemDisplay[NMAG SUP ED>0]: %NAME% %ORANGE%[%ED%% ED]%CONTINUE%
+ItemDisplay[NMAG SUP AR>0]: %NAME% %ORANGE%[%AR% AR]%CONTINUE%
+ItemDisplay[NMAG SOCK>0 !RW]: %NAME% %GRAY%(%WHITE%%SOCKETS%%GRAY%)
+
+
+// 11. DATA CATCH-ALL
+ItemDisplay[hp5 OR mp5]: %GREEN%[Core_Fuel] %NAME%
+ItemDisplay[rvl]: %SOUNDID-1%%PURPLE%[GOD_FUEL] %NAME%
+ItemDisplay[WEAPON OR ARMOR OR rin OR amu OR jew OR cm1 OR cm2 OR cm3]: %NAME%
+
+it seems fine for normal itrem here, stop changing. Just the 701 for the same 
