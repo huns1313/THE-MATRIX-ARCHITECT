@@ -24,18 +24,20 @@ Alias[RUNES_MID]: (r16 OR r17 OR r18 OR r19 OR r20 OR r21 OR r22)
 Alias[RUNES_LOW]: (r01 OR r02 OR r03 OR r04 OR r05 OR r06 OR r07 OR r08 OR r09 OR r10 OR r11 OR r12 OR r13 OR r14 OR r15)
 ItemDisplay[rvl]: %SOUNDID-703%%PURPLE%[GOD_FUEL] %NAME%
 ItemDisplay[rvs]: %SOUNDID-702%%PURPLE%[Fuel] %NAME%
+ItemDisplay[WEAPON SOCK=4 ONEHANDED !RW]: %SOUNDID-868%%BLUE%[4SQ] %NAME% %GRAY%(%WHITE%4%GRAY%)
+
 // 4. [MODE: GOD] // THE HYUUNNS_OVERRIDE (ALWAYS SHOW)
 ItemDisplay[GODLY_ITEMS]: %SOUNDID-701%%MAP-0A%%DOT-62%%GREEN%>> %TEAL%[GOD] %WHITE%%NAME%%GREEN% <<
 ItemDisplay[RUNES_GODLY]: %SOUNDID-701%%MAP-0A%%DOT-62%%GREEN%>> %TEAL%[GOD_RUNE] %WHITE%%NAME%%GREEN% <<
-// =============================================================================
-// NECROMANCER MASTER LOGIC v5 - [COMPLETE USEFUL SKILLS]
+=============================================================================
+// NECROMANCER GOD-TIER VISIBILITY (ALWAYS SHOW IN NM & HELL)
 // =============================================================================
 
-// --- 1. LES ARBRES (TABSK) ---
-ItemDisplay[(WP12 OR nef) TABSK18>1]: %SOUNDID-277%%BLUE%[+2 SUMMON] %NAME% %CONTINUE%
-ItemDisplay[(WP12 OR nef) TABSK17>1]: %SOUNDID-277%%BLUE%[+2 PNB] %NAME% %CONTINUE%
-ItemDisplay[(WP12 OR nef) TABSK16>1]: %SOUNDID-277%%BLUE%[+2 CURSE] %NAME% %CONTINUE%
-ItemDisplay[(WP12 OR nef) CLSK2>1]: %SOUNDID-277%%BLUE%[+2 NECRO] %NAME% %CONTINUE%
+// --- 1. LES ARBRES (FORCÉ TOUJOURS VISIBLE + SON + MAP) ---
+ItemDisplay[(WP12 OR nef) TABSK18>1]: %SOUNDID-277%%MAP-0B%%DOT-62%%BLUE%[+2 SUMMON] %NAME% %CONTINUE%
+ItemDisplay[(WP12 OR nef) TABSK17>1]: %SOUNDID-277%%MAP-0B%%DOT-62%%BLUE%[+2 PNB] %NAME% %CONTINUE%
+ItemDisplay[(WP12 OR nef) TABSK16>1]: %SOUNDID-277%%MAP-0B%%DOT-62%%BLUE%[+2 CURSE] %NAME% %CONTINUE%
+ItemDisplay[(WP12 OR nef) CLSK2>1]: %SOUNDID-277%%MAP-0B%%DOT-62%%BLUE%[+2 NECRO] %NAME% %CONTINUE%
 
 // --- 2. BRANCH SUMMON (INVOQUE) ---
 ItemDisplay[(WP12 OR nef) SK70>2]: %BLUE%[+3 WARRIOR] %NAME% %CONTINUE%
@@ -47,61 +49,26 @@ ItemDisplay[(WP12 OR nef) SK79>2]: %BLUE%[+3 GOLEM-M] %NAME% %CONTINUE%
 ItemDisplay[(WP12 OR nef) SK94>2]: %BLUE%[+3 FIRE-G] %NAME% %CONTINUE%
 ItemDisplay[(WP12 OR nef) SK90>2]: %BLUE%[+3 IRON-G] %NAME% %CONTINUE%
 
-// --- 3. BRANCH POISON & BONE (DÉGÂTS) ---
+// --- 3. BRANCH POISON & BONE ---
+ItemDisplay[(WP12 OR nef) SK67>2 !TABSK17>0 !CLSK2>0]: %BLUE%[+3 TEETH] %NAME% %CONTINUE%
 ItemDisplay[(WP12 OR nef) SK92>2]: %BLUE%[+3 NOVA] %NAME% %CONTINUE%
 ItemDisplay[(WP12 OR nef) SK84>2]: %BLUE%[+3 SPEAR] %NAME% %CONTINUE%
 ItemDisplay[(WP12 OR nef) SK93>2]: %BLUE%[+3 SPIRIT] %NAME% %CONTINUE%
 ItemDisplay[(WP12 OR nef) SK83>2]: %BLUE%[+3 DESECRATE] %NAME% %CONTINUE%
 ItemDisplay[(WP12 OR nef) SK74>2]: %BLUE%[+3 CE] %NAME% %CONTINUE%
-ItemDisplay[(WP12 OR nef) SK67>2 !TABSK18>0 !TABSK17>0 !TABSK16>0 !CLSK2>0]: %BLUE%[+3 TEETH] %NAME% %CONTINUE%
 
-// --- 4. BRANCH CURSES & UTILITY (SUPPORT) ---
+// --- 4. BRANCH CURSES & UTILITY ---
 ItemDisplay[(WP12 OR nef) SK91>2]: %BLUE%[+3 LOW-RES] %NAME% %CONTINUE%
 ItemDisplay[(WP12 OR nef) SK87>2]: %BLUE%[+3 DECREP] %NAME% %CONTINUE%
 ItemDisplay[(WP12 OR nef) SK367>2]: %BLUE%[+3 BLOOD-W] %NAME% %CONTINUE%
 
-// --- 5. LES BASES SOCKETS ---
-ItemDisplay[WP12 NMAG SOCK=2]: %BLUE%[WHITE-BASE] %NAME% %CONTINUE%
-ItemDisplay[nef NMAG SOCK=2]: %BLUE%[SPLENDOR-BASE] %NAME% %CONTINUE%
+// --- 5. LES BASES SOCKETS (FORCÉ TOUJOURS VISIBLE) ---
+ItemDisplay[WP12 NMAG SOCK=2]: %MAP-0B%%BLUE%[WHITE-BASE] %NAME% %CONTINUE%
+ItemDisplay[nef NMAG SOCK=2]: %MAP-0B%%BLUE%[SPLENDOR-BASE] %NAME% %CONTINUE%
 
-// =============================================================================
-// =============================================================================
-// NECROMANCER MASTER LOGIC v6 - [DEMON HEADS / SHIELDS]
-// =============================================================================
-
-// --- 1. LES ARBRES (TABSK) ---
-ItemDisplay[nef TABSK18>1]: %SOUNDID-277%%BLUE%[+2 SUMMON] %NAME% %CONTINUE%
-ItemDisplay[nef TABSK17>1]: %SOUNDID-277%%BLUE%[+2 PNB] %NAME% %CONTINUE%
-ItemDisplay[nef TABSK16>1]: %SOUNDID-277%%BLUE%[+2 CURSE] %NAME% %CONTINUE%
-ItemDisplay[nef CLSK2>1]: %SOUNDID-277%%BLUE%[+2 NECRO] %NAME% %CONTINUE%
-
-// --- 2. BRANCH SUMMON (INVOQUE) ---
-ItemDisplay[nef SK70>2]: %BLUE%[+3 WARRIOR] %NAME% %CONTINUE%
-ItemDisplay[nef SK80>2]: %BLUE%[+3 MAGE] %NAME% %CONTINUE%
-ItemDisplay[nef SK89>2]: %BLUE%[+3 ARCHER] %NAME% %CONTINUE%
-ItemDisplay[nef SK69>2]: %BLUE%[+3 MASTERY] %NAME% %CONTINUE%
-ItemDisplay[nef SK95>2]: %BLUE%[+3 REVIVE] %NAME% %CONTINUE%
-ItemDisplay[nef SK79>2]: %BLUE%[+3 GOLEM-M] %NAME% %CONTINUE%
-ItemDisplay[nef SK94>2]: %BLUE%[+3 FIRE-G] %NAME% %CONTINUE%
-
-// --- 3. BRANCH POISON & BONE (DÉGÂTS) ---
-ItemDisplay[nef SK92>2]: %BLUE%[+3 NOVA] %NAME% %CONTINUE%
-ItemDisplay[nef SK84>2]: %BLUE%[+3 SPEAR] %NAME% %CONTINUE%
-ItemDisplay[nef SK93>2]: %BLUE%[+3 SPIRIT] %NAME% %CONTINUE%
-ItemDisplay[nef SK83>2]: %BLUE%[+3 DESECRATE] %NAME% %CONTINUE%
-ItemDisplay[nef SK74>2]: %BLUE%[+3 CE] %NAME% %CONTINUE%
-
-// --- 4. BRANCH CURSES & UTILITY (SUPPORT) ---
-ItemDisplay[nef SK91>2]: %BLUE%[+3 LOW-RES] %NAME% %CONTINUE%
-ItemDisplay[nef SK87>2]: %BLUE%[+3 DECREP] %NAME% %CONTINUE%
-ItemDisplay[nef SK367>2]: %BLUE%[+3 BLOOD-W] %NAME% %CONTINUE%
-
-// --- 5. BASES SOCKETS (POUR "SPLENDOR" OU "RHYME") ---
-ItemDisplay[nef NMAG SOCK=2]: %BLUE%[2-SQ] %NAME% %CONTINUE%
-
-// =============================================================================
-
-
+// --- 6. SÉCURITÉ ANTI-HIDE (TRÈS IMPORTANT) ---
+// Cette ligne empêche les objets avec les skills ci-dessus d'être cachés par les filtres globaux
+ItemDisplay[(WP12 OR nef) (TABSK18>1 OR TABSK17>1 OR CLSK2>1 OR SK70>2 OR SK92>2 OR SK89>2)]: %NAME%
 // =============================================================================
 // POTIONS
 ItemDisplay[hp1 OR hp2 OR hp3 OR hp4 OR hp5]: %SOUNDID-300%%TAN%%NAME%
