@@ -1,11 +1,3 @@
-
-💾 [FR] THE MATRIX ARCHITECT // LISEZ-MOI
-STRUCTURE : 3 niveaux de filtrage via le bouton In-Game (Normal, NM, Hell).
-
-VISIBILITÉ : Les bases sont étiquetées [NM.Base] ou [HELLYA.Base] pour un tri rapide.
-
-RUNES : Affichage premium multicolore pour les High Runes.
-
-POTIONS : Les petites potions sont masquées dès le niveau 2 pour épurer l'écran.
-
-NECRO : Optimisation maximale pour les bases de baguettes et têtes de Necro.
+THE MATRIX ARCHITECT v14.8 | SYSTEM_OPTIMIZED
+FRANÇAIS (Standard)
+Ce script de filtrage d'objets pour Project Diablo 2 (PD2) est optimisé pour la progression dynamique. Il segmente les runes et l'équipement en quatre paliers distincts : NORMA (Normal), NIGHT (Cauchemar), hellYa! (Enfer), et GOD (Élite/Grail). La logique utilise des drapeaux FILTLVL pour masquer automatiquement les objets de faible valeur (bases normales, potions de bas niveau, or inutile) à mesure que votre personnage progresse, tout en mettant en évidence les "Mojo" (baguettes/boucliers de nécromancien) avec des notifications sonores et visuelles spécifiques.
