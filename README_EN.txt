@@ -1,6 +1,9 @@
-THE MATRIX ARCHITECT v14.8 | SYSTEM_OPTIMIZED
+ENGLISH | Technical Deep-Dive THE MATRIX ARCHITECT is a high-performance loot engine tailored for endgame efficiency and zero-clutter gameplay.
 
-ENGLISH
+Tiered Rune Logic: Runes are divided into logical progression steps. NORMA (Low) are utility, NIGHT (Mid) are hidden in high-tier filters to prevent screen bloat, while HELLYA and GOD tiers utilize distinct sound IDs and persistent map icons.
 
-This object filter script for Project Diablo 2 (PD2) is optimized for dynamic progression. It segments runes and gear into four distinct tiers: NORMA, NIGHT, hellYa!, and GOD. The logic utilizes FILTLVL flags to automatically hide low-value items (normal bases, low-level potions, clutter gold) as your character advances, while highlighting "Mojo" items (Necromancer wands/shields) with specific audio-visual notifications for high-tier skill rolls.
-pour rien. Ça part de NORMA jusqu'à GOD. Plus tu montes de niveau (FILTLVL), plus le script fait le ménage tout seul : y cache les petites potions pis les bases qui valent pas de la scrap en Enfer. Si un "Mojo" de Nécromancien tombe avec les bonnes skills, ça va flasher pis faire du bruit en masse pour pas que tu passes à côté. C'est "tight", c'est propre, pis tu perdras plus ton temps avec de l'or de change.
+Contextual Hiding (Map-Based): Using MAPID>137 logic, the filter recognizes when you are in endgame Maps. In these zones, it aggressively hides scrolls, small gold piles, and mid-tier bases to ensure you only click on items that actually improve your build.
+
+The Mojo Vault: This is a specialized module for Necromancers. It scans for "staff mods" (skills inherent to the item). If an item hits the threshold for a "God-Roll" (e.g., Archer, Warrior, or Bone builds), it triggers a unique Sound ID (556) and purple text notification.
+
+Consumable Optimization: Worldstone Shards (wss) and Rejuvenation Potions (rvl) are treated as high-priority "Fuel," ensuring you never run out of crafting materials or survival tools during intense boss fights.
