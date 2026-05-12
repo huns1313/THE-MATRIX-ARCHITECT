@@ -117,7 +117,23 @@ ItemDisplay[NORM NMAG !RW CLVL>40 !TOWN]:
 ItemDisplay[RW NORM]: %MAP-0B%%WHITE%[n.Command] %NAME%
 ItemDisplay[SET NORM]: %SOUNDID-788%%DARK_GREEN%[n.Set] %NAME%
 ItemDisplay[RARE NORM]: %YELLOW%[n.Rare] %NAME%
+// =============================================================================
+// =============================================================================
+// [8. CHARM VISIBILITY - MATRIX SAFE ASCII]
+// =============================================================================
 
-// [8. FINAL CATCH-ALL]
+// GRAND CHARMS - (Using "Big" brackets)
+ItemDisplay[cm3]: %SOUNDID-277%%MAP-0B%%DOT-62%%GOLD% <o> <o> %NAME% %GOLD%[GC] %ORANGE% <o> <o>
+
+// LARGE CHARMS - (Using "Mid" brackets)
+ItemDisplay[cm2]: %SOUNDID-277%%MAP-0B%%DOT-62%%GOLD% [=] [=] %NAME% %GOLD%[LC]
+
+// SMALL CHARMS - (Using "Eye" brackets)
+ItemDisplay[cm1]: %SOUNDID-277%%MAP-0B%%DOT-62%%ORANGE% (!!) %GOLD%%NAME% %RED%[SC] %ORANGE% (!!)
+
+// =============================================================================
+// [9. FINAL CATCH-ALL]
+// =============================================================================
+
 ItemDisplay[hp5 OR mp5]: %GREEN%[Core_Fuel] %NAME%
-ItemDisplay[WEAPON OR ARMOR OR rin OR amu OR jew OR cm1 OR cm2 OR cm3]: %NAME%
+ItemDisplay[WEAPON OR ARMOR OR rin OR amu OR jew]: %NAME%
