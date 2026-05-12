@@ -1,22 +1,9 @@
-[QC] THE MATRIX ARCHITECT // LIS-MOI
-[N.] MODE NORMA : Tu vois tout. Pour quand t'es à sec ou que tu commences.
+THE MATRIX ARCHITECT v14.8 | SYSTEM_OPTIMIZED
+FRANÇAIS (Standard)
+Ce script de filtrage d'objets pour Project Diablo 2 (PD2) est optimisé pour la progression dynamique. Il segmente les runes et l'équipement en quatre paliers distincts : NORMA (Normal), NIGHT (Cauchemar), hellYa! (Enfer), et GOD (Élite/Grail). La logique utilise des drapeaux FILTLVL pour masquer automatiquement les objets de faible valeur (bases normales, potions de bas niveau, or inutile) à mesure que votre personnage progresse, tout en mettant en évidence les "Mojo" (baguettes/boucliers de nécromancien) avec des notifications sonores et visuelles spécifiques.
 
-[NM.] NIGHT MODE : On garroche la scrap. Juste l'Exceptional pis l'Elite qui restent.
+ENGLISH
+This object filter script for Project Diablo 2 (PD2) is optimized for dynamic progression. It segments runes and gear into four distinct tiers: NORMA, NIGHT, hellYa!, and GOD. The logic utilizes FILTLVL flags to automatically hide low-value items (normal bases, low-level potions, clutter gold) as your character advances, while highlighting "Mojo" items (Necromancer wands/shields) with specific audio-visual notifications for high-tier skill rolls.
 
-[HELLYA.] HELL MODE : Mode endgame. Juste l'Elite pis le stock de fou.
-
-RUNES : Les High Runes sont multicolores. Si ça flashe, saute dessus.
-
-NECRO : Tes bases +3 skills ont des sons pis des points sur la map. Check tes wands!
-
-
-⚡ [EN] THE MATRIX ARCHITECT // READ-ME
-SCALING : 3 Filter levels (N / NM / HELLYA).
-
-GOD_FUEL : Full Rejuvs always visible with Purple labels.
-
-HIGH RUNES : Multicolor strobe effect. Can't miss 'em.
-
-BASES : Automated hiding of lower tiers based on your filter level.
-
-NECRO : Forced visibility for +3 God-tier bases with Sound/Map pings.
+QUÉBÉCOIS (Le "Matrix" du Nord)
+Écoute ben, ton filtre là, c'est une vraie machine de guerre. J'ai classé tes runes pis ton gear en quatre catégories pour pas que tu ramasses de la cochonnerie pour rien. Ça part de NORMA jusqu'à GOD. Plus tu montes de niveau (FILTLVL), plus le script fait le ménage tout seul : y cache les petites potions pis les bases qui valent pas de la scrap en Enfer. Si un "Mojo" de Nécromancien tombe avec les bonnes skills, ça va flasher pis faire du bruit en masse pour pas que tu passes à côté. C'est "tight", c'est propre, pis tu perdras plus ton temps avec de l'or de change.
