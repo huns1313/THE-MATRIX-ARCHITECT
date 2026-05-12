@@ -1,9 +1,6 @@
-⚡ [EN] THE MATRIX ARCHITECT // READ-ME SCALING : 3 Filter levels (N / NM / HELLYA).
+THE MATRIX ARCHITECT v14.8 | SYSTEM_OPTIMIZED
 
-GOD_FUEL : Full Rejuvs always visible with Purple labels.
+ENGLISH
 
-HIGH RUNES : Multicolor strobe effect. Can't miss 'em.
-
-BASES : Automated hiding of lower tiers based on your filter level.
-
-NECRO : Forced visibility for +3 God-tier bases with Sound/Map pings.
+This object filter script for Project Diablo 2 (PD2) is optimized for dynamic progression. It segments runes and gear into four distinct tiers: NORMA, NIGHT, hellYa!, and GOD. The logic utilizes FILTLVL flags to automatically hide low-value items (normal bases, low-level potions, clutter gold) as your character advances, while highlighting "Mojo" items (Necromancer wands/shields) with specific audio-visual notifications for high-tier skill rolls.
+pour rien. Ça part de NORMA jusqu'à GOD. Plus tu montes de niveau (FILTLVL), plus le script fait le ménage tout seul : y cache les petites potions pis les bases qui valent pas de la scrap en Enfer. Si un "Mojo" de Nécromancien tombe avec les bonnes skills, ça va flasher pis faire du bruit en masse pour pas que tu passes à côté. C'est "tight", c'est propre, pis tu perdras plus ton temps avec de l'or de change.
