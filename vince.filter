@@ -10,130 +10,121 @@ ItemDisplayFilterName[]: [n.] NORMA MODE
 ItemDisplayFilterName[]: [nm.] NIGHT MODE
 ItemDisplayFilterName[]: [hellYa!.] HELL MODE
 
-/ [0. GLOBAL CONFIGURATION & ALIASES]
-// Re-populating NORMA with r01-r09 to separate their color logic
+// Re-populating RUNES
 Alias[RUNES_NORMA]:  (r01 OR r01s OR r02 OR r02s OR r03 OR r03s OR r04 OR r04s OR r05 OR r05s OR r06 OR r06s OR r07 OR r07s OR r08 OR r08s OR r09 OR r09s)
 Alias[RUNES_NIGHT]:  (r10 OR r10s OR r11 OR r11s OR r12 OR r12s OR r13 OR r13s OR r14 OR r14s OR r15 OR r15s OR r16 OR r16s OR r17 OR r17s OR r18 OR r18s)
-Alias[RUNES_HELLYA]: (r19 OR r19s OR r20 OR r20s OR r21 OR r21s OR r22 OR r22s OR r23 OR r23s OR r24 OR r24s OR r25 OR r25s OR r26 OR r26s OR r27 OR r27s)
+Alias[RUNES_HELLYA]: (r19 OR r19s OR r20 OR r20s OR r21 OR r21s OR r22 OR r23 OR r23s OR r24 OR r24s OR r25 OR r25s OR r26 OR r26s OR r27 OR r27s)
 Alias[RUNES_GODLY]:  (r28 OR r28s OR r29 OR r29s OR r30 OR r30s OR r31 OR r31s OR r32 OR r32s OR r33 OR r33s)
 
 // [1. SYSTEM RELEASE NOTES]
-ItemDisplay[isc SHOP]: %NAME%{%NAME%%NL%%TEAL%THE MATRIX ARCHITECT v14.8%NL%%WHITE%----------------------------%NL%%GOLD%[GOD] Tier:%WHITE% Always Visible%NL%%GREEN%[hellYa!] Tier:%WHITE% Always Visible%NL%%WHITE%----------------------------%NL%%RED%LOGIC: %CONTINUE% RUNE PRIORITY & COLOR FIX}
-// [2. RUNE MASTER CONTROL (PRIORITY ORDER: LOW TO HIGH)]
+ItemDisplay[isc SHOP]: %NAME%{%NAME%%NL%%TEAL%THE MATRIX ARCHITECT v14.8%NL%%WHITE%----------------------------%NL%%GOLD%[GOD] Tier:%WHITE% Always Visible%NL%%GREEN%[hellYa!] Tier:%WHITE% Always Visible%NL%%WHITE%----------------------------%NL%%RED%LOGIC: %CONTINUE% RUNE PRIORITY & ETH FIX}
 
-// --- n. RUNES (EL to ORT) - ALWAYS VISIBLE & YELLOW ---
+// [2. RUNE MASTER CONTROL]
 ItemDisplay[RUNES_NORMA]: %YELLOW%[n.RUNE] %NAME% %WHITE%(%RUNENUM%)
-
-// --- nm. RUNES (THUL to IO) - ORANGE - Hides in FILTLVL 3 ---
 ItemDisplay[RUNES_NIGHT FILTLVL<3]: %SOUNDID-1%%MAP-0B%%ORANGE%[nm.RUNE] %NAME% %WHITE%(%RUNENUM%)
 ItemDisplay[RUNES_NIGHT]: 
-
-// --- hellYa! RUNES (FAL to OHM) ---
 ItemDisplay[RUNES_HELLYA]: %SOUNDID-788%%MAP-0B%%DOT-62%%RED%>> %ORANGE%[hellYa!RUNE] %GOLD%%NAME% %WHITE%(%RUNENUM%)%ORANGE% <<
-
-// --- GOD_RUNE (LO to ZOD) ---
 ItemDisplay[RUNES_GODLY]: %SOUNDID-550%%MAP-0A%%DOT-62%%RED%>> %GOLD%[GOD_RUNE] %PURPLE%%NAME% %WHITE%(%RUNENUM%)%RED% <<
 
-// --- THE MOJO VAULT: SPECIAL GOD-GRAIL EXCEPTIONS (SOUND 556) ---
-// ARCHER MOJO
+// [3. THE MOJO VAULT & SKILL LOGIC]
 ItemDisplay[WP12 TABSK18>1 SK89>2 (SK67>2 OR SK68>2 OR SK69>0 AND !SK69>2 OR SK70>2 OR SK71>2 OR SK72>2 OR SK73>2 OR SK74>2 OR SK75>2 OR SK76>2 OR SK77>2 OR SK78>2 OR SK79>2 OR SK80>2 OR SK81>2 OR SK82>2 OR SK83>2 OR SK84>2 OR SK85>2 OR SK86>2 OR SK87>2 OR SK88>2 OR SK90>2 OR SK91>2 OR SK92>2 OR SK93>2 OR SK94>2 OR SK95>2)]: %SOUNDID-556%%MAP-0A%%DOT-62%%GOLD%[GOD-ARCHER-MOJO] %PURPLE%%NAME% %CONTINUE%
-// WARRIOR MOJO
 ItemDisplay[WP12 TABSK18>1 SK70>2 (SK67>2 OR SK68>2 OR SK69>0 AND !SK69>2 OR SK71>2 OR SK72>2 OR SK73>2 OR SK74>2 OR SK75>2 OR SK76>2 OR SK77>2 OR SK78>2 OR SK79>2 OR SK80>2 OR SK81>2 OR SK82>2 OR SK83>2 OR SK84>2 OR SK85>2 OR SK86>2 OR SK87>2 OR SK88>2 OR SK89>2 OR SK90>2 OR SK91>2 OR SK92>2 OR SK93>2 OR SK94>2 OR SK95>2)]: %SOUNDID-556%%MAP-0A%%DOT-62%%GOLD%[GOD-WARRIOR-MOJO] %PURPLE%%NAME% %CONTINUE%
-// MAGE MOJO
 ItemDisplay[WP12 TABSK18>1 SK80>2 (SK67>2 OR SK68>2 OR SK69>0 AND !SK69>2 OR SK70>2 OR SK71>2 OR SK72>2 OR SK73>2 OR SK74>2 OR SK75>2 OR SK76>2 OR SK77>2 OR SK78>2 OR SK79>2 OR SK81>2 OR SK82>2 OR SK83>2 OR SK84>2 OR SK85>2 OR SK86>2 OR SK87>2 OR SK88>2 OR SK89>2 OR SK90>2 OR SK91>2 OR SK92>2 OR SK93>2 OR SK94>2 OR SK95>2)]: %SOUNDID-556%%MAP-0A%%DOT-62%%GOLD%[GOD-MAGE-MOJO] %PURPLE%%NAME% %CONTINUE%
-// POISON MOJO
 ItemDisplay[WP12 TABSK17>1 SK92>2 (SK67>2 OR SK68>2 OR SK69>2 OR SK70>2 OR SK71>2 OR SK72>2 OR SK73>2 OR SK75>2 OR SK76>2 OR SK77>2 OR SK78>2 OR SK79>2 OR SK80>2 OR SK81>2 OR SK82>2 OR SK83>2 OR SK84>2 OR SK85>2 OR SK86>2 OR SK87>2 OR SK88>2 OR SK89>2 OR SK90>2 OR SK91>2 OR SK93>2 OR SK94>2 OR SK95>2)]: %SOUNDID-556%%MAP-0A%%DOT-62%%GOLD%[GOD-POISON-MOJO] %PURPLE%%NAME% %CONTINUE%
-// BONE MOJO
 ItemDisplay[WP12 TABSK17>1 SK84>2 (SK68>2 OR SK69>2 OR SK70>2 OR SK71>2 OR SK72>2 OR SK73>2 OR SK74>2 OR SK75>2 OR SK76>2 OR SK77>2 OR SK78>2 OR SK79>2 OR SK80>2 OR SK81>2 OR SK82>2 OR SK83>2 OR SK85>2 OR SK86>2 OR SK87>2 OR SK88>2 OR SK89>2 OR SK90>2 OR SK91>2 OR SK92>2 OR SK93>2 OR SK94>2 OR SK95>2)]: %SOUNDID-556%%MAP-0A%%DOT-62%%GOLD%[GOD-BONE-MOJO] %PURPLE%%NAME% %CONTINUE%
 
-// --- TRIPLE SKILL STACKING LOGIC ---
 ItemDisplay[(WP12 OR nef) TABSK18>1]: %SOUNDID-277%%MAP-0B%%DOT-62%%BLUE%[+2 SUMMON]%CONTINUE%
 ItemDisplay[(WP12 OR nef) TABSK17>1]: %SOUNDID-277%%MAP-0B%%DOT-62%%BLUE%[+2 PNB]%CONTINUE%
 ItemDisplay[(WP12 OR nef) TABSK16>1]: %SOUNDID-277%%MAP-0B%%DOT-62%%BLUE%[+2 CURSE]%CONTINUE%
 ItemDisplay[(WP12 OR nef) CLSK2>1]: %SOUNDID-277%%MAP-0B%%DOT-62%%BLUE%[+2 NECRO]%CONTINUE%
-
-ItemDisplay[(WP12 OR nef) SK70>2]: %MAP-0B%%BLUE%[+3 WARRIOR]%CONTINUE%
-ItemDisplay[(WP12 OR nef) SK80>2]: %MAP-0B%%BLUE%[+3 MAGE]%CONTINUE%
-ItemDisplay[(WP12 OR nef) SK89>2]: %MAP-0B%%BLUE%[+3 ARCHER]%CONTINUE%
-ItemDisplay[(WP12 OR nef) SK69>2]: %MAP-0B%%BLUE%[+3 MASTERY]%CONTINUE%
-ItemDisplay[(WP12 OR nef) SK95>2]: %MAP-0B%%BLUE%[+3 REVIVE]%CONTINUE%
-ItemDisplay[(WP12 OR nef) SK67>2]: %MAP-0B%%BLUE%[+3 TEETH]%CONTINUE%
-ItemDisplay[(WP12 OR nef) SK92>2]: %MAP-0B%%BLUE%[+3 NOVA]%CONTINUE%
-ItemDisplay[(WP12 OR nef) SK84>2]: %MAP-0B%%BLUE%[+3 SPEAR]%CONTINUE%
-ItemDisplay[(WP12 OR nef) SK83>2]: %MAP-0B%%BLUE%[+3 DESECRATE]%CONTINUE%
-ItemDisplay[(WP12 OR nef) SK74>2]: %MAP-0B%%BLUE%[+3 CE]%CONTINUE%
+ItemDisplay[(WP12 OR nef) (SK70>2 OR SK80>2 OR SK89>2 OR SK69>2 OR SK95>2 OR SK67>2 OR SK92>2 OR SK84>2 OR SK83>2 OR SK74>2)]: %MAP-0B%%BLUE%[+3 SKILL]%CONTINUE%
 
 ItemDisplay[WP12 NMAG SOCK=2]: %MAP-0B%%DOT-62%%BLUE% [WHITE-BASE]%CONTINUE%
 ItemDisplay[nef NMAG SOCK=2]: %MAP-0B%%DOT-62%%BLUE% [SPLENDOR-BASE]%CONTINUE%
-
-// Final visibility and Name printing
 ItemDisplay[(WP12 OR nef) (TABSK18>1 OR TABSK17>1 OR CLSK2>1 OR SK70>2 OR SK92>2 OR SK89>2 OR SK84>2 OR SK67>2)]: %NAME%
-
-// [4. CONSUMABLES & PROTECTION]
-ItemDisplay[wss]: %SOUNDID-701%%MAP-0B%%DOT-62%%ORANGE%>> %RED%[WSS] %NAME%%ORANGE% <<
+// =============================================================================
+// [4. CONSUMABLES]
+// =============================================================================
 ItemDisplay[rvl]: %SOUNDID-703%%MAP-0A%%DOT-62%%PURPLE%[GOD_FUEL] %NAME%	
 ItemDisplay[rvs]: %SOUNDID-702%%MAP-0B%%PURPLE%[Fuel] %NAME%
-ItemDisplay[hp5]: %SOUNDID-300%%TAN%[SUPER POTION]
+ItemDisplay[wss]: %SOUNDID-701%%MAP-0B%%DOT-62%%ORANGE%>> %RED%[WSS] %NAME%%ORANGE% <<
+ItemDisplay[hp5]: %SOUNDID-300%%TAN%[SUPER]
+ItemDisplay[mp5]: %BLUE%[MANA]
 ItemDisplay[yps]: %WHITE%[ANTIDOTE]
 
-ItemDisplay[(hp1 OR hp2 OR hp3 OR hp4 OR mp1 OR mp2 OR mp3 OR mp4) (BELT OR INV)]: %NAME%
-ItemDisplay[(isc OR tsc OR vps OR wms) (BELT OR INV)]: %NAME%
+// Hide low level consumables based on Filter Level
+ItemDisplay[(hp1 OR hp2 OR hp3 OR hp4 OR mp1 OR mp2 OR mp3 OR mp4) FILTLVL>1]: 
+ItemDisplay[(isc OR tsc OR vps OR wms) FILTLVL>1]: 
 
-ItemDisplay[(hp1 OR hp2 OR hp3 OR hp4 OR mp1 OR mp2 OR mp3 OR mp4) FILTLVL>1]: 
-ItemDisplay[(isc OR tsc OR vps OR wms OR cph OR gpm OR opm OR plms OR glms) FILTLVL>1]: 
-ItemDisplay[(vwp OR gwp OR bwp OR quivers) FILTLVL>1]:
+// =============================================================================
 // [5. ITEM BASES PER TIER]
-ItemDisplay[ELT NMAG !RW]: %WHITE%[hellYa!Base] %NAME%%CONTINUE%
-ItemDisplay[EXC NMAG !RW FILTLVL<3]: %WHITE%[NM.Base] %NAME%%CONTINUE%
-ItemDisplay[NORM NMAG !RW FILTLVL<2]: %WHITE%[n.Base] %NAME%%CONTINUE%
+// =============================================================================
+// ELITE BASES
+ItemDisplay[ELT NMAG ETH !RW]: %GRAY%[ETH] %PURPLE%[hellYa!Base] %WHITE%%NAME% %CONTINUE%
+ItemDisplay[ELT NMAG !RW]: %PURPLE%[hellYa!Base] %WHITE%%NAME% %CONTINUE%
 
-// FIXED: This now appends to the end of the tags above without doubling
-ItemDisplay[SOCK>1]: %NAME% %RED%[%SOCKETS% SOCK]
+// EXCEPTIONAL BASES - Hidden if FILTLVL is 3 (Hell Mode)
+ItemDisplay[EXC NMAG !RW FILTLVL>2]:
+ItemDisplay[EXC NMAG ETH !RW]: %GRAY%[ETH] %WHITE%%NAME% %CONTINUE%
+ItemDisplay[EXC NMAG !RW]: %ORANGE%[NM.Base] %WHITE%%NAME% %CONTINUE%
 
-// Hides normal bases in Nightmare/Hell
-ItemDisplay[NORM NMAG !RW FILTLVL>1]: 
+// NORMAL BASES - Hidden if FILTLVL is 2 or 3 (Night/Hell Mode)
+ItemDisplay[NORM NMAG !RW FILTLVL>1]:
+ItemDisplay[NORM NMAG ETH !RW]: %GRAY%[ETH] %WHITE%%NAME% %CONTINUE%
+ItemDisplay[NORM NMAG !RW]: %GRAY%[n.Base] %WHITE%%NAME% %CONTINUE%
 
-ItemDisplay[(EXC OR ELT) NMAG !RW !UNI !SET !RARE FILTLVL<3]: %NAME%
+// --- THE SOCKET RULE ---
+ItemDisplay[NMAG !RW SOCK>1]: %NAME% %RED%[%SOCKETS% SOCK]
+
+// =============================================================================
 // [6. DYNAMIC PROGRESSION HIDING]
-ItemDisplay[(NORM OR EXC) (NMAG OR MAG) !UNI !SET !RARE !RW MAPID>137]:
-ItemDisplay[(hp1 OR hp2 OR hp3 OR hp4 OR mp1 OR mp2 OR mp3 OR mp4 OR rvs OR isc OR tsc) MAPID>137]:
+// =============================================================================
+// PROTECT ETH: Explicitly show ETH items in maps before the hiding rule
+ItemDisplay[ETH NMAG !RW]: %NAME%
+ItemDisplay[(NORM OR EXC) (NMAG OR MAG) !UNI !SET !RARE !RW !ETH MAPID>137]:
+
 ItemDisplay[GOLD<100 CLVL<18]:
 ItemDisplay[GOLD<1000 (CLVL>17 AND CLVL<80)]:
 ItemDisplay[GOLD<5000 CLVL>79]:
 
+// =============================================================================
 // [7. LOOT STREAMS]
+// =============================================================================
 ItemDisplay[UNI ELT]: %SOUNDID-737%%MAP-0B%%DOT-62%%GREEN%[hellYa!Unique] >> %NAME% <<
 ItemDisplay[SET ELT]: %SOUNDID-737%%MAP-0B%%DOT-62%%GREEN%[hellYa!Set] >> %NAME% <<
-ItemDisplay[RW ELT]: %SOUNDID-737%%MAP-0B%%DOT-97%%WHITE%[hellYa!Command] %NAME%
 ItemDisplay[RARE ELT]: %TAN%[hellYa!Rare] %NAME%
 
 ItemDisplay[UNI EXC]: %SOUNDID-788%%MAP-0B%%DOT-62%%GREEN%[NM.Unique] >> %NAME% <<
 ItemDisplay[SET EXC]: %SOUNDID-701%%MAP-0B%%DOT-62%%GREEN%[NM.Set] >> %NAME% <<
-ItemDisplay[RW EXC]: %SOUNDID-788%%MAP-0B%%DOT-97%%WHITE%[NM.Command] %NAME%
 ItemDisplay[RARE EXC]: %TAN%[NM.Rare] %NAME%
 
 ItemDisplay[UNI NORM MODE_NORMA=1]: %SOUNDID-788%%MAP-0B%%DARK_GREEN%[n.Unique] %NAME%
-ItemDisplay[NORM NMAG !RW CLVL>40 !TOWN]:
-ItemDisplay[RW NORM]: %MAP-0B%%WHITE%[n.Command] %NAME%
 ItemDisplay[SET NORM]: %SOUNDID-788%%DARK_GREEN%[n.Set] %NAME%
 ItemDisplay[RARE NORM]: %YELLOW%[n.Rare] %NAME%
-// =============================================================================
-// =============================================================================
-// [8. CHARM VISIBILITY - MATRIX SAFE ASCII]
-// =============================================================================
-
-// GRAND CHARMS - (Using "Big" brackets)
-ItemDisplay[cm3]: %SOUNDID-277%%MAP-0B%%DOT-62%%GOLD% <o> <o> %NAME% %GOLD%[GC] %ORANGE% <o> <o>
-
-// LARGE CHARMS - (Using "Mid" brackets)
-ItemDisplay[cm2]: %SOUNDID-277%%MAP-0B%%DOT-62%%GOLD% [=] [=] %NAME% %GOLD%[LC]
-
-// SMALL CHARMS - (Using "Eye" brackets)
-ItemDisplay[cm1]: %SOUNDID-277%%MAP-0B%%DOT-62%%ORANGE% (!!) %GOLD%%NAME% %RED%[SC] %ORANGE% (!!)
 
 // =============================================================================
 // [9. FINAL CATCH-ALL]
 // =============================================================================
+// Prevent Normal/Exceptional MAG/RARE items from appearing in higher filter levels
+ItemDisplay[(NORM OR EXC) (MAG OR RARE) !ETH FILTLVL>2]: 
 
-ItemDisplay[hp5 OR mp5]: %GREEN%[Core_Fuel] %NAME%
-ItemDisplay[WEAPON OR ARMOR OR rin OR amu OR jew]: %NAME%
+ItemDisplay[MAG ETH ELT]: %GRAY%[ETH] %PURPLE%[hellYa!Magic] %BLUE%%NAME%
+ItemDisplay[MAG ETH EXC]: %GRAY%[ETH] %ORANGE%[NM.Magic] %BLUE%%NAME%
+ItemDisplay[MAG ETH NORM]: %GRAY%[ETH] %YELLOW%[n.Magic] %BLUE%%NAME%
+
+ItemDisplay[RARE ETH ELT]: %GRAY%[ETH] %PURPLE%[hellYa!Rare] %TAN%%NAME%
+ItemDisplay[RARE ETH EXC]: %GRAY%[ETH] %ORANGE%[NM.Rare] %TAN%%NAME%
+ItemDisplay[RARE ETH NORM]: %GRAY%[ETH] %YELLOW%[n.Rare] %TAN%%NAME%
+
+// =============================================================================
+// [10. EMERGENCY FALLBACK]
+// =============================================================================
+ItemDisplay[ETH ELT !RW !NMAG]: %GRAY%[ETH] %PURPLE%[hellYa!] %NAME%
+ItemDisplay[ETH EXC !RW !NMAG]: %GRAY%[ETH] %ORANGE%[NM.] %NAME%
+ItemDisplay[ETH NORM !RW !NMAG]: %GRAY%[ETH] %NAME%
+
+// Ensure hidden base types don't show their raw names at the very end
+ItemDisplay[NORM NMAG !RW FILTLVL>1]: 
+ItemDisplay[EXC NMAG !RW FILTLVL>2]: 
+
+ItemDisplay[(WEAPON OR ARMOR OR rin OR amu OR jew) !NMAG]: %NAME%
