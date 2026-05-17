@@ -1,33 +1,56 @@
-THE MATRIX ARCHITECT v14.8 | DEEP SYSTEM DOCUMENTATION
-FRANÇAIS | Documentation Technique
-Le MATRIX ARCHITECT n'est pas qu'un simple filtre; c'est un moteur de gestion de butin (loot) conçu pour éliminer la fatigue visuelle tout en maximisant l'efficacité de recherche.
+# THE MATRIX ARCHITECT // SYSTEM_OPTIMIZED
+### A Custom Project Diablo 2 (PD2) Item Filter
+**Architected by:** [GOD] HYUUNNS XAVIER DEPATIE 
+**Design Philosophy:** Pure efficiency, zero clutter, built with over 25 years of hardcore Diablo 2 itemization knowledge. and still learning!!!
 
-Piliers de Rareté : Le système segmente les runes et les objets en quatre classes de "puissance". Le palier GOD (Runes Lo à Zod) utilise des alertes sonores de haute priorité et des marqueurs violets/or sur la carte.
+---
 
-Filtrage Dynamique (FILTLVL) : Contrairement aux filtres statiques, celui-ci s'adapte. En mode Normal, vous voyez tout. Dès que vous atteignez le niveau de filtre 3 (Nightmare/Hell), le script purge automatiquement les bases normales, les potions de santé 1 à 4, et l'or insignifiant pour ne laisser que le "Fuel" (Potions de régénération totale et HP5).
+## SYSTEM CONFIGURATION OVERVIEW
 
-Logique de "Mojo" Avancée : Le script analyse les bâtons de nécromancien (WP12) et les têtes réduites (nef) pour identifier les "Triple Skill Stacks". Il cherche des combinaisons spécifiques comme +2 Necro / +3 Poison Nova / +3 Lower Resist pour les marquer comme GOD-MOJO.
+### [0.0] Global Configurations & Aliases
+The core framework utilizing three active mode switches to scale visibility based on progression difficulty.
+* `MODE_NORMA` (Mode 1): Early game optimization.
+* `MODE_NIGHT` (Mode 2): Mid-game/Nightmare tracking filters.
+* `MODE_hellYa` (Mode 3): Absolute late-game endgame filter maps.
+* Includes built-in dynamic grouping blocks for unstacked and stacked rune types across all tiers (`RUNES_NORMA` up to `RUNES_GODLY`).
 
-Gestion des Bases : Les bases d'objets sont étiquetées par difficulté. Une base Élite blanche sera marquée [hellYa!Base] pour indiquer son potentiel de mot runique en fin de jeu.
+### [1.0] Master Overlays & Accessory Architect
+* **Quality Interceptors:** Initial layout triggers checking raw state configurations (`ETH SUP`, `ETH !SUP`, `!ETH SUP`) and appending uniform visual metadata before handing execution off to lower rows.
+* **Endgame Filter Blockers:** Enforces dynamic level gates based on game state profile toggles. Low/Mid items drop silently into the vacuum line when difficulty constraints are scaled up (`FILTLVL=3` deletes jewelry beneath `ILVL 80`).
+* **The Jewelry Matrices:** Hard-gated rules that dynamically filter Amulets, Rings, and Charms based on their specific item tier and level brackets (`n.`, `NM.`, `Ya!!`).
 
-ENGLISH | Technical Deep-Dive
-THE MATRIX ARCHITECT is a high-performance loot engine tailored for endgame efficiency and zero-clutter gameplay.
+### [2.0] The Force-Show Overrides (Jewels & Throwing)
+* **[2.0.1] Master Jewel System Override:** Overrides basic item constraints by tracking and isolating loose `jew` structures natively. Utilizes custom map icons and audio warning prompts (`SOUNDID-9`) while gating regular jewels via `ILVL` sorting steps.
+* **[4.0.2] Master Throwing Weapon Overlay:** Isolates all throwing items (`WP5`) natively. Restricts low and exceptional level items from flooding high progression tiers via absolute type gating lines (`WP5 NORM FILTLVL>1`).
 
-Tiered Rune Logic: Runes are divided into logical progression steps. NORMA (Low) are utility, NIGHT (Mid) are hidden in high-tier filters to prevent screen bloat, while HELLYA and GOD tiers utilize distinct sound IDs and persistent map icons.
+### [3.0] Consumables & Priority Class Bases
+* **The Matrix Vacuum:** Automated silencing system for sub-tier recovery items, utility scrolls, and standard potions once entry into Nightmare and Hell difficulty scales are met (`FILTLVL>1`).
+* **Absolute priority nodes:** Permanent visibility anchors for foundational inventory assets like quest targets, Keys, and custom force-show logic for Necromancer Mojo shields (`CL4`).
+* **Class Item Sorting Matrix:** Handles tiered armor components and weapon components, enforcing dynamic, automatic structural requirements like minimum layout socket counts (`SOCK>1`) before visibility flags run.
 
-Contextual Hiding (Map-Based): Using MAPID>137 logic, the filter recognizes when you are in endgame Maps. In these zones, it aggressively hides scrolls, small gold piles, and mid-tier bases to ensure you only click on items that actually improve your build.
+### [4.0] Runeword Bases & End-Game Market Nodes
+* **The Mercenary Melee & Armor Hub:** Highly aggressive item target check lines monitoring specific code arrays (`utp`, `uld`, `ucl`, etc.) for optimal Ethereal socket components (`SOCK=0` and `SOCK=4`).
+* **The Indestructible/Caster Matrix:** Native asset trackers designed to screen and display targeted progression weapons (e.g., Flails, Elite bows, high resistance Paladin Shields).
+* **The Final Purge:** The absolute sanitation barrier of the file. Automatically eliminates zero-socket weapon templates (`SOCK=0 !RARE`), non-rare low tier items, and junk assets before lower visibility engines execute.
 
-The Mojo Vault: This is a specialized module for Necromancers. It scans for "staff mods" (skills inherent to the item). If an item hits the threshold for a "God-Roll" (e.g., Archer, Warrior, or Bone builds), it triggers a unique Sound ID (556) and purple text notification.
+### [5.0] Uniques, Sets, & Currency Master Blocks
+* **Tiered Equipment Layouts:** Dynamic visual scaling across drop sets. Uniques, Sets, and Rares display custom typography badges based on their tier (`[Ya!!]`, `[NM.]`, `[n.]`).
+* **PD2 Economy Tracker:** Universal visual tracking hooks monitoring trade inventory items, Maps, Currency, Uber crafting materials, and crafting materials.
 
-Consumable Optimization: Worldstone Shards (wss) and Rejuvenation Potions (rvl) are treated as high-priority "Fuel," ensuring you never run out of crafting materials or survival tools during intense boss fights.
+### [6.0] Rune Master Control & Maps Catch-All
+* **Rune Color Interceptors:** Custom name overrides displaying exact item ranking levels (`r01` to `r33`) using dedicated tactical colors to track higher tiered rune assets effortlessly.
+* **Late Game Map Sanitation:** Dynamic gold filtering blocks and environment rules designed to silence raw junk item clutter while mapping in map tier spaces (`MAPID>137`).
+### [7.0] Maps & Dynamic Environmental Filters
+The final optimization phase that automatically activates the moment you step foot into high-density endgame mapping environments.
+* **Map Progression Tracker:** Categorizes endgame content instantly by tier indicators (`T1` through `T3`), applying a persistent gold prefix to identify zone modifications.
+* **The Map Vacuum Engine:** A highly aggressive environmental clean-up script that initiates inside instances (`MAPID>137`). It completely silences standard normal and exceptional drops (`NORM OR EXC`) once character progression targets are achieved (`CLVL<80`).
+* **Dynamic Gold Threshold Matrix:** Contextual currency filtering that scales with your character's age and level. It dynamically clears clutter from your screen by muting minor piles (`GOLD<100` early on, scaling up to hide any pile under `5000` gold once your character reaches level 80+).
 
-QUÉBÉCOIS | Le Grand Déballage
-Ok, check ben, c'est là que ça devient sérieux. Ton filtre, c'est pas juste du texte de couleur, c'est un cerveau électronique qui trie tes drops pour que tu puisses grinder sans arrêter.
+### [8.0] Master Post-Process Catch-All (The Structural Finishers)
+The safe-landing pad for exceptional, high-value item properties that managed to clear your strict vacuum phases.
+* **Ethereal Asset Extraction:** Explicit visual hooks tracking unidentified magic and rare elite item codes dropping in an ethereal state (`MAG ETH ELT` / `RARE ETH ELT`). 
+* It assigns clean, high-visibility purple labels (`[Ya!!Magic]` / `[Ya!!Rare]`) to ensure top-tier crafting or trophy bases are safely accounted for.
 
-Le Ménage Automatique : On s'entend que ramasser 100 pièces d'or au niveau 80, c'est une perte de temps. Le script a une règle GOLD<5000 CLVL>79 : si t'es haut niveau pis que la pile d'or est pas au moins 5000, elle apparaît même pas. Pareil pour les potions : les petites hp1 à hp4, ça dégage dès que tu passes en Cauchemar.
-
-Les Runes (Le Trésor) : J'ai séparé ça pour que tes yeux sachent quoi faire tout de suite. Les runes NORMA, c'est du jaune standard. Les NIGHT, c'est du orange (pis elles se cachent au FILTLVL 3 pour pas polluer l'écran). Mais quand une GOD_RUNE (Lo-Zod) tombe, le jeu te pète une coche : son spécial, icône mauve sur la map, pis du texte qui flash. Tu peux pas la manquer, même si tu joues à moitié endormi.
-
-Le "Mojo Vault" (Pour les Necros) : Ça, c'est le summum. Le script "scan" tes baguettes pis tes boucliers de nécro. S'il voit un combo de malade (genre +3 Skeleton Archer pis +2 Summoning), il t'écrit [GOD-ARCHER-MOJO]. C'est fait pour trouver les items qui valent des dizaines de HR sans avoir à les identifier un par un.
-
-Les Bases de Mots Runiques : Les items blancs sont taggués par difficulté. Si tu vois [hellYa!Base], c'est du matériel pour faire tes gros mots runiques de fin de game. C'est simple : si c'est pas taggué, c'est de la scrap.
+### [9.0] Emergency Fallback System
+The final safety net at the absolute bottom of the parsing structure.
+* **The Blueprint Guard:** Acts as an automated fallback anchor to guarantee that if any undocumented unique, set, or miscellaneous item breaks past your strict custom rulesets, it defaults directly to the native client configuration layer with standard audio alerts and minimap indicators—ensuring zero data leakage or missed ultra-rare drops.
